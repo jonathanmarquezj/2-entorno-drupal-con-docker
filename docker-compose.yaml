@@ -1,0 +1,84 @@
+version: '3.8'
+
+services:
+# DRUPAL Y PHP
+  php:
+    container_name: drupal
+    volumes:
+    - type: volume
+      source: staticfiles
+      target: /opt/drupal/web
+    image: jonathan-drupal
+    restart: always
+    hostname: drupal
+    networks:
+      - red-entorno
+
+# SERVIDOR WEB
+  nginx:
+    container_name: nginx
+    depends_on:
+      - "php"
+    volumes:
+    - type: volume
+      source: staticfiles
+      target: /var/www/html
+    environment:
+      NGINX_BACKEND_PORT: ${NGINX_BACKEND_PORT}
+      NGINX_SERVER_NAME: ${NGINX_SERVER_NAME}
+      NGINX_BACKEND_HOST: ${NGINX_BACKEND_HOST}
+    image: jonathan-nginx
+    restart: always
+    networks:
+      - red-entorno
+    ports:
+     - 80:80
+     - 443:443
+
+# BASE DE DATOS
+  db:
+    container_name: mysql
+    volumes:
+    - type: volume
+      source: drupaldatabase
+      target: /var/lib/mysql
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    networks:
+      - red-entorno
+
+  # BALANCEADOR DE CARGA
+  haproxy:
+    image: haproxy
+    volumes:
+        - ./haproxy:/usr/local/etc/haproxy # ruta del archivo de configuración de haproxy
+    depends_on:
+      - "nginx"
+    ports:
+        - "8080:80"
+    expose:
+        - 80   # puerto expuesto haproxy
+
+# VOLUMENES NECESARIOS
+volumes:
+  staticfiles:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./volumen/files
+      o: bind
+  drupaldatabase:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./volumen/mysql
+      o: bind
+
+# RED
+networks:
+  red-entorno:
