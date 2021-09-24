@@ -54,6 +54,7 @@ services:
 
   # BALANCEADOR DE CARGA
   haproxy:
+    container_name: haproxy
     image: haproxy
     volumes:
         - ./haproxy:/usr/local/etc/haproxy # ruta del archivo de configuración de haproxy
