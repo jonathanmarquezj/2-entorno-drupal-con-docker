@@ -16,7 +16,12 @@ services:
 
 # SERVIDOR WEB
   nginx:
-    container_name: nginx
+#    container_name: nginx # Lo quitamos para hacer el scale del contenedor
+    deploy:
+      replicas: 2 # Escalamos el servicio
+      update_config:
+        parallelism: 1
+        delay: 1m30s
     depends_on:
       - "php"
     volumes:
@@ -54,16 +59,21 @@ services:
 
   # BALANCEADOR DE CARGA
   haproxy:
-    image: eeacms/haproxy
+    container_name: haproxy
+    image: haproxy:1.7
+    volumes:
+    - type: volume
+      source: confhaproxy
+      #target: /usr/local/etc/haproxy/haproxy.cfg
+      target: /usr/local/etc/haproxy
     depends_on:
       - nginx
     ports:
-      - "80:5000"
-      - "1936:1936"
-    environment:
-      BACKENDS: "nginx"
-      DNS_ENABLED: "true"
-      LOG_LEVEL: "info"
+      - "80:80"
+      - "8181:8181"
+    networks:
+      - red-entorno
+      
 
 # VOLUMENES NECESARIOS
 volumes:
@@ -78,6 +88,12 @@ volumes:
     driver_opts:
       type: none
       device: ./volumen/mysql
+      o: bind
+  confhaproxy:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./volumen/haproxy
       o: bind
 
 # RED
