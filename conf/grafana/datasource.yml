@@ -1,4 +1,4 @@
-# config file version
+# ESTE ARCHIVO ES LA CONFIGURACION DEL GRAFANA, PARA NO TENER QUE ENTRAR Y PONERLO LOS DATOS DE LOKI
 apiVersion: 1
 
 deleteDatasources:
