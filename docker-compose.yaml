@@ -1,6 +1,9 @@
 version: '3.8'
 
 services:
+# -----------------------------------------
+#               MONITORIZADOR
+# -----------------------------------------
 # FLUENT
   fluent:
     container_name: fluent-bit
@@ -44,7 +47,9 @@ services:
 
 
 
-
+# -----------------------------------------
+#                SERVICIOS
+# -----------------------------------------
 
 # DRUPAL Y PHP
   php:
@@ -139,7 +144,9 @@ services:
       - red-entorno
       
 
-# VOLUMENES NECESARIOS
+# -----------------------------------------
+#                 VOLUMENES
+# -----------------------------------------
 volumes:
   staticfiles:
     driver: local
@@ -159,7 +166,9 @@ volumes:
       type: none
       device: ./volumen/haproxy
       o: bind
-
-# RED
+    
+# -----------------------------------------
+#                   RED
+# -----------------------------------------
 networks:
   red-entorno:
