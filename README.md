@@ -2,7 +2,7 @@
 
 ## Objetivo:
 
-* Initialization de contenedores de bases de datos (MariaDB)
+* Initialización de contenedores de bases de datos (MariaDB)
 * Backup e importación de base de datos en mysql
 * Monitorización Grafana + Prometheus
 * Replicación de base de datos
