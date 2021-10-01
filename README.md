@@ -21,7 +21,7 @@ mkdir -p $PROJECT_DIR/backup/mysql
 </pre>
 
 ## Imagenes necesarias
-Para crear las imagenes necesarias jecutamos el siguiente comando.
+Para crear las imagenes necesarias ejecutamos el siguiente comando.
 <pre>
 docker build -t "jonathan-drupal" $PROJECT_DIR/drupal
 
