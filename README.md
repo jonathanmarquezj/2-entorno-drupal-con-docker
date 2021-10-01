@@ -47,7 +47,7 @@ Y nos tendrea que salir algo como esto.
 
 Y si nos dirigimos al "localhost" nos aparecera la web de drupal para comenzar la instalación.
 
-# Explicación del entorno
+## Explicación del entorno
 - <b>Haproxy</b>: Sera el encargado de balancear la carga del puerto 80 a los nginx.
 - <b>Nginx</b>: Es el servicio web, esta escalado a 2, para que el balanceador de carga funcione.
 - <b>Db</b>: La base de datos para el Drupal.
@@ -56,7 +56,7 @@ Y si nos dirigimos al "localhost" nos aparecera la web de drupal para comenzar l
 - <b>Loki</b>: Es como el interprete para proporcionar los datos a Grafana.
 - <b>Grafana</b>: Es la aplicación que se encargara de enseñar los Log de los contenedores, para entrar ponemos en el navegador "<b>localhost:3000</b>".
 
-# Automatización
+## Automatización
 Si ejecutamos el "menu.sh" esta podemos realizar barias operaciones automáticas, en la cual podemos:
 - <b>Iniciar el entorno</b>
 - <b>Realizar copia de la DB</b>: Realiza la copia sin necesidad de entrar en el contenedor, lo hace ya automáticamente
