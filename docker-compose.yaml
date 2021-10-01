@@ -33,6 +33,7 @@ services:
     environment:
       GF_SECURITY_ADMIN_USER: root # Usuario de la web
       GF_SECURITY_ADMIN_PASSWORD: root # Pass de la web
+      GF_INSTALL_PLUGINS: percona-percona-app # Instalar el plugin de prometheus
     networks:
       - red-entorno
 
@@ -42,6 +43,35 @@ services:
     image: grafana/loki:latest
     ports:
       - "3100:3100"
+    networks:
+      - red-entorno
+
+
+
+  prom_mysql_exporter:
+    image: prom/mysqld-exporter
+    container_name: prom_mysql_exporter
+    depends_on:
+      - db
+    ports:
+      - "9104:9104"
+    environment:
+      DATA_SOURCE_NAME: root:${MYSQL_ROOT_PASSWORD}@(mysql:3306)/drupal
+    #command: /bin/mysqld_exporter collect.binlog_size=true collect.info_schema.processlist=true
+    networks:
+      - red-entorno
+  
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./conf/prometheus/prometheus.yml:/prometheus/prometheus.yml
+    command: 
+      - --config.file=/prometheus/prometheus.yml
+    depends_on:
+      - prom_mysql_exporter
+    ports:
+      - "9090:9090"
     networks:
       - red-entorno
 
