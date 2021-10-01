@@ -67,7 +67,7 @@ services:
       - collect.perf_schema.indexiowaits=true
       - collect.perf_schema.tableiowaits=true
       - collect.perf_schema.tablelocks=true
-    command: /bin/mysqld_exporter collect.binlog_size=true collect.info_schema.processlist=true
+    #command: /bin/mysqld_exporter collect.binlog_size=true collect.info_schema.processlist=true
     networks:
       - red-entorno
 
