@@ -59,6 +59,8 @@ Es tan facil como poner el siguiente codigo para la instalacion.
 
 <pre>
 curl -sSL https://raw.githubusercontent.com/rcmorano/baids/master/baids | bash -s install
+
+source "/home/${USER}/.baids/baids"
 </pre>
 
 El siguiente paso es crear el enlace y recargamos los baids
@@ -92,22 +94,22 @@ Y nos tendra que salir algo como esto.
 
 Y si nos dirigimos al "localhost" nos aparecera la web de drupal para comenzar la instalación.
 
-Para eliminar el entorno
+Para eliminar el entorno:
 <pre>
 dev-2-entorno-drupal-con-docker.test-down
 </pre>
 
-Para entrar en el entorno de la DB
+Para entrar en el entorno de la DB:
 <pre>
 dev-2-entorno-drupal-con-docker.test-mysql-shell
 </pre>
 
-Para realizar la copia de la DB
+Para realizar la copia de la DB:
 <pre>
 dev-2-entorno-drupal-con-docker.test-mysql-dump-db
 </pre>
 
-Para realizar la importacion de la DB
+Para realizar la importacion de la DB:
 <pre>
 dev-2-entorno-drupal-con-docker.test-mysql-import-db < fichero_de_la_copia >
 </pre>
