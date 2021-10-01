@@ -54,4 +54,10 @@ Y si nos dirigimos al "localhost" nos aparecera la web de drupal para comenzar l
 - <b>Drupal con PHP-fmp</b>: Sera el servicio con PHP y tendrá la aplicación de Drupal.
 - <b>Fluent-bit</b>: Es el encargado de recolectar los Log de los contenedores con los servicios.
 - <b>Loki</b>: Es como el interprete para proporcionar los datos a Grafana.
-- <b>Grafana</b>: Es la aplicación que se encargara de enseñar los Log de los contenedores, para entrar ponemos en el navegador "<b>localhost:3000<b>".
+- <b>Grafana</b>: Es la aplicación que se encargara de enseñar los Log de los contenedores, para entrar ponemos en el navegador "<b>localhost:3000</b>".
+
+# Automatización
+Si ejecutamos el "menu.sh" esta podemos realizar barias operaciones automáticas, en la cual podemos:
+- <b>Iniciar el entorno</b>
+- <b>Realizar copia de la DB</b>: Realiza la copia sin necesidad de entrar en el contenedor, lo hace ya automáticamente
+- <b>Realizar importación de la DB</b>: Realiza la importación de la copia sin necesidad de entrar en el contenedor
