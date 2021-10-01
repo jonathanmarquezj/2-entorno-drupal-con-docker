@@ -7,7 +7,7 @@ Despues creamos el directorio del proyecto.
 mkdir -p $PROJECTS_DIR
 </pre>
 
-Despues tendremos que clonar el repositorio en el direcotio creado para el proyecto
+Despues tendremos que clonar el repositorio en el directorio creado para el proyecto
 <pre>
 git clone https://github.com/jonathanmarquezj/2-entorno-drupal-con-docker.git $PROJECT_DIR
 </pre>
@@ -21,7 +21,7 @@ mkdir -p $PROJECT_DIR/backup/mysql
 </pre>
 
 ## Imagenes necesarios
-Para crear las imagens necesarios nos dirigimos al directorio "drupal" y ejecutamos el siguiente comando.
+Para crear las imagenes necesarios nos dirigimos al directorio "drupal" y ejecutamos el siguiente comando.
 <pre>
 docker build -t "jonathan-drupal" $PROJECT_DIR/drupal
 </pre>
@@ -66,7 +66,7 @@ Comprobamos que funciona con el siguiente comando.
 docker-compose ps
 </pre>
 
-Y nos tendrea que salir algo como esto.
+Y nos tendra que salir algo como esto.
 | Name | Command | State | Ports |
 |---|---|---|---|
 | 2-entorno-drupal-con-docker_nginx_1 | /bin/bash /assets/bin/dock ... | Up | 443/tcp, 80/tcp |
