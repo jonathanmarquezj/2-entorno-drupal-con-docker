@@ -1,33 +1,30 @@
 # Entorno Drupal con Docker-compose
 ## Preparacion del entorno
-Lo primero es cargar las variables necesarias que la podemos encontrar en el ".env".
+Lo primero es cargar las variables necesarias que la podemos encontrar en el `.env`.
 
-Despues creamos el directorio del proyecto.
+Creamos el directorio del proyecto.
 <pre>
 mkdir -p $PROJECTS_DIR
 </pre>
 
-Despues tendremos que clonar el repositorio en el directorio creado para el proyecto
+Clonar el repositorio en el directorio creado para el proyecto
 <pre>
 git clone https://github.com/jonathanmarquezj/2-entorno-drupal-con-docker.git $PROJECT_DIR
 </pre>
 
 ## Directorios necesarios
-Tendremos que crear primero los directorios necesarios para el proyecto.
+Creamos la estructura de directorios.
 <pre>
 mkdir $PROJECT_DIR/volumen/mysql
 mkdir $PROJECT_DIR/volumen/files
 mkdir -p $PROJECT_DIR/backup/mysql
 </pre>
 
-## Imagenes necesarios
-Para crear las imagenes necesarios nos dirigimos al directorio "drupal" y ejecutamos el siguiente comando.
+## Imagenes necesarias
+Para crear las imagenes necesarias jecutamos el siguiente comando.
 <pre>
 docker build -t "jonathan-drupal" $PROJECT_DIR/drupal
-</pre>
 
-Lo mismo hacemos en el directorio "nginx".
-<pre>
 docker build -t "jonathan-nginx" $PROJECT_DIR/nginx
 </pre>
 
@@ -38,10 +35,10 @@ docker build -t "jonathan-nginx" $PROJECT_DIR/nginx
 - <b>Drupal con PHP-fmp</b>: Sera el servicio con PHP y tendrá la aplicación de Drupal.
 - <b>Fluent-bit</b>: Es el encargado de recolectar los Log de los contenedores con los servicios.
 - <b>Loki</b>: Es como el interprete para proporcionar los datos a Grafana.
-- <b>Grafana</b>: Es la aplicación que se encargara de enseñar los Log de los contenedores, para entrar ponemos en el navegador "<b>localhost:3000</b>".
+- <b>Grafana</b>: Es la aplicación que se encargara de visualizar los registros de los contenedores. Para entrar ponemos en el navegador "<b>localhost:3000</b>".
 
 ## Automatización con Baids
-Lo primero es instalar los paquetes necesarios para poder ejecutar los Baids, accede a [aqui](https://github.com/rcmorano/baids#installation) para la instalacion.
+Lo primero es instalar los paquetes necesarios para poder ejecutar los Baids, accede a [aqui](https://github.com/rcmorano/baids#installation) para la instalación.
 
 Es tan facil como poner el siguiente codigo para la instalacion.
 
