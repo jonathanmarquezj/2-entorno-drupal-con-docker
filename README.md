@@ -82,3 +82,22 @@ Y nos tendrea que salir algo como esto.
 
 Y si nos dirigimos al "localhost" nos aparecera la web de drupal para comenzar la instalación.
 
+Para eliminar el entorno
+<pre>
+dev-2-entorno-drupal-con-docker.test-down
+</pre>
+
+Para entrar en el entorno de la DB
+<pre>
+dev-2-entorno-drupal-con-docker.test-mysql-shell
+</pre>
+
+Para realizar la copia de la DB
+<pre>
+dev-2-entorno-drupal-con-docker.test-mysql-dump-db
+</pre>
+
+Para realizar la importacion de la DB
+<pre>
+
+</pre>
