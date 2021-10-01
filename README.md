@@ -1,4 +1,19 @@
-# Entorno Drupal con Docker-compose
+# Administración de base de datos en MySQL con Docker
+
+## Objetivo:
+
+* Initialization de contenedores de bases de datos (MariaDB)
+* Backup e importación de base de datos en mysql
+* Monitorización Grafana + Prometheus
+* Replicación de base de datos
+
+## Requisitos 
+
+- Docker
+- Docker-compose
+- Git
+- Baids
+
 ## Preparacion del entorno
 Lo primero es cargar las variables necesarias que la podemos encontrar en el `.env`.
 
