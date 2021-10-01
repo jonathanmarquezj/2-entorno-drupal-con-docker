@@ -1,13 +1,24 @@
 # Entorno Drupal con Docker-compose
-## Directorios necesarios
-Tendremos que crear primero los directorios necesarios para el proyecto, de tal manera que donde descargamos el repositorio tendremos que crear las siguientes carpetas.
+## Preparacion del entorno
+Lo primero es cargar las variables necesarias que la podemos encontrar en el ".env".
+
+Despues creamos el directorio del proyecto.
 <pre>
-mkdir volumen/mysql
-mkdir volumen/files
+mkdir -p $PROJECTS_DIR
 </pre>
 
-## Cargar variables necesarias <br>
-Copiamos el contenido del archivo ".env" en la terminal.
+Despues tendremos que clonar el repositorio en el direcotio creado para el proyecto
+<pre>
+git clone https://github.com/jonathanmarquezj/2-entorno-drupal-con-docker.git $PROJECT_DIR
+</pre>
+
+## Directorios necesarios
+Tendremos que crear primero los directorios necesarios para el proyecto.
+<pre>
+mkdir $PROJECTS_DIR/volumen/mysql
+mkdir $PROJECTS_DIR/volumen/files
+mkdir -p $PROJECTS_DIR/backup/mysql
+</pre>
 
 ## Imagenes necesarios
 Para crear las imagens necesarios nos dirigimos al directorio "drupal" y ejecutamos el siguiente comando.
@@ -56,8 +67,26 @@ Y si nos dirigimos al "localhost" nos aparecera la web de drupal para comenzar l
 - <b>Loki</b>: Es como el interprete para proporcionar los datos a Grafana.
 - <b>Grafana</b>: Es la aplicación que se encargara de enseñar los Log de los contenedores, para entrar ponemos en el navegador "<b>localhost:3000</b>".
 
-## Automatización
-Si ejecutamos el "menu.sh" esta podemos realizar barias operaciones automáticas, en la cual podemos:
-- <b>Iniciar el entorno</b>
-- <b>Realizar copia de la DB</b>: Realiza la copia sin necesidad de entrar en el contenedor, lo hace ya automáticamente
-- <b>Realizar importación de la DB</b>: Realiza la importación de la copia sin necesidad de entrar en el contenedor
+## Automatización con Baids
+Lo primero es instalar los paquetes necesarios para poder ejecutar los Baids, accede a [aqui](https://github.com/rcmorano/baids#installation) para la instalacion.
+
+Es tan facil como poner el siguiente codigo para la instalacion.
+
+<pre>
+curl -sSL https://raw.githubusercontent.com/rcmorano/baids/master/baids | bash -s install
+</pre>
+
+El siguiente paso es crear el enlace y recargamos los baids
+<pre>
+ln -fs $PROJECT_DIR/baids $HOME/.baids/functions.d/$PROJECT_NAME
+
+baids-reload
+</pre>
+
+Para desplegar el entorno ejecutamos el siguiente comando
+<pre>
+
+</pre>
+
+Para 
+
