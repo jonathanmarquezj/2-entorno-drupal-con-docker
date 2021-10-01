@@ -97,5 +97,5 @@ dev-2-entorno-drupal-con-docker.test-mysql-dump-db
 
 Para realizar la importacion de la DB
 <pre>
-
+dev-2-entorno-drupal-con-docker.test-mysql-import-db < fichero_de_la_copia >
 </pre>

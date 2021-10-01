@@ -43,6 +43,6 @@ Usage: dev-2-entorno-drupal-con-docker.test-mysql-import-db $PROJECT_DIR/backup/
 
   docker exec -i mysql bash -c 'exec mysql -u root -p"$MYSQL_ROOT_PASSWORD"' < $SQL_DUMP
 
-  echo -e "[\x1b[1;32m IMPORTACION REALIZADA\x1b[0m ]"
+  echo -e "[\x1b[1;32m IMPORTACION FINALIZADA\x1b[0m ]"
 
 }
