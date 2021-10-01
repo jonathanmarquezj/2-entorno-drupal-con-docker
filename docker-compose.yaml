@@ -46,8 +46,7 @@ services:
     networks:
       - red-entorno
 
-
-
+# MYSQL EXPORTER
   prom_mysql_exporter:
     image: prom/mysqld-exporter
     container_name: prom_mysql_exporter
@@ -56,18 +55,30 @@ services:
     ports:
       - "9104:9104"
     environment:
-      DATA_SOURCE_NAME: root:${MYSQL_ROOT_PASSWORD}@(mysql:3306)/drupal
-    #command: /bin/mysqld_exporter collect.binlog_size=true collect.info_schema.processlist=true
+      - DATA_SOURCE_NAME='root:${MYSQL_ROOT_PASSWORD}@(mysql:3306)/drupal'
+      - collect.info_schema.tablestats=true
+      - collect.info_schema.userstats=true
+      - collect.info_schema.query_response_time=true
+      - collect.auto_increment.columns=true
+      - collect.binlog_size=true
+      - collect.perf_schema.eventsstatements=true
+      - collect.perf_schema.eventswaits=true
+      - collect.perf_schema.file_events=true
+      - collect.perf_schema.indexiowaits=true
+      - collect.perf_schema.tableiowaits=true
+      - collect.perf_schema.tablelocks=true
+    command: /bin/mysqld_exporter collect.binlog_size=true collect.info_schema.processlist=true
     networks:
       - red-entorno
-  
+
+# PROMETHEUS
   prometheus:
     image: prom/prometheus
     container_name: prometheus
     volumes:
       - ./conf/prometheus/prometheus.yml:/prometheus/prometheus.yml
     command: 
-      - --config.file=/prometheus/prometheus.yml
+      - --config.file=/prometheus/prometheus.yml # Especificamos el archivo de configuracion
     depends_on:
       - prom_mysql_exporter
     ports:
