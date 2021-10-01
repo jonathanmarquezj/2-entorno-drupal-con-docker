@@ -23,12 +23,12 @@ mkdir -p $PROJECT_DIR/backup/mysql
 ## Imagenes necesarios
 Para crear las imagens necesarios nos dirigimos al directorio "drupal" y ejecutamos el siguiente comando.
 <pre>
-docker build -t "jonathan-drupal" $PROJECT_DIR/drupal .
+docker build -t "jonathan-drupal" $PROJECT_DIR/drupal
 </pre>
 
 Lo mismo hacemos en el directorio "nginx".
 <pre>
-docker build -t "jonathan-nginx" $PROJECT_DIR/nginx .
+docker build -t "jonathan-nginx" $PROJECT_DIR/nginx
 </pre>
 
 ## Explicación del entorno
