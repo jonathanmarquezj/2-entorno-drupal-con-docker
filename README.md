@@ -15,22 +15,20 @@ git clone https://github.com/jonathanmarquezj/2-entorno-drupal-con-docker.git $P
 ## Directorios necesarios
 Tendremos que crear primero los directorios necesarios para el proyecto.
 <pre>
-mkdir $PROJECTS_DIR/volumen/mysql
-mkdir $PROJECTS_DIR/volumen/files
-mkdir -p $PROJECTS_DIR/backup/mysql
+mkdir $PROJECT_DIR/volumen/mysql
+mkdir $PROJECT_DIR/volumen/files
+mkdir -p $PROJECT_DIR/backup/mysql
 </pre>
 
 ## Imagenes necesarios
 Para crear las imagens necesarios nos dirigimos al directorio "drupal" y ejecutamos el siguiente comando.
 <pre>
-cd drupal
-docker build -t "jonathan-drupal" .
+docker build -t "jonathan-drupal" $PROJECT_DIR/drupal
 </pre>
 
 Lo mismo hacemos en el directorio "nginx".
 <pre>
-cd nginx
-docker build -t "jonathan-nginx" .
+docker build -t "jonathan-nginx" $PROJECT_DIR/nginx
 </pre>
 
 ## Explicación del entorno
