@@ -1,12 +1,15 @@
 global:
   scrape_interval: 5s 
+  evaluation_interval: 5s
 
 scrape_configs:
+# PARA MONITORIZAR PROMETEUS
   - job_name: prometheus
     static_configs:
       - targets: ['localhost:9090']
 
-  - job_name: mysql
+# PARA MONITORIZAR LA DB
+  - job_name: monitor
     static_configs:
       - targets: ['prom_mysql_exporter:9104']
         labels:

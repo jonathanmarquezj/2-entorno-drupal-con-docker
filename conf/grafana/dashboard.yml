@@ -1,0 +1,10 @@
+# ESTE ARCHIVO ES PARA PONER DASHBOARDS YA PREDEFINIDOS
+apiVersion: 1
+
+# PLANTILLAS DE DASHBOARDS
+providers:
+- name: dashboards
+  type: file
+  options:
+    path: /etc/grafana/provisioning/dashboards
+    foldersFromFilesStructure: true

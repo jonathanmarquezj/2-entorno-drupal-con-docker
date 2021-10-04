@@ -5,6 +5,7 @@ deleteDatasources:
   - name: loki
   - name: Prometheus
 
+# DE DONDE COGE LOS DATOS
 datasources:
 - name: loki
   type: loki

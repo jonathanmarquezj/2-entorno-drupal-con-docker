@@ -28,6 +28,8 @@ services:
     container_name: grafana
     volumes:
       - ./conf/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./conf/grafana/dashboard-mysql.json:/etc/grafana/provisioning/dashboards/dashboard-mysql.json
+      - ./conf/grafana/dashboard.yml:/etc/grafana/provisioning/dashboards/dashboard.yml
     ports:
       - "3000:3000"
     environment:
@@ -55,7 +57,7 @@ services:
     ports:
       - "9104:9104"
     environment:
-      - DATA_SOURCE_NAME='root:${MYSQL_ROOT_PASSWORD}@(mysql:3306)/drupal'
+      - DATA_SOURCE_NAME=root:${MYSQL_ROOT_PASSWORD}@(mysql:3306)/
       - collect.info_schema.tablestats=true
       - collect.info_schema.userstats=true
       - collect.info_schema.query_response_time=true
@@ -67,7 +69,6 @@ services:
       - collect.perf_schema.indexiowaits=true
       - collect.perf_schema.tableiowaits=true
       - collect.perf_schema.tablelocks=true
-    #command: /bin/mysqld_exporter collect.binlog_size=true collect.info_schema.processlist=true
     networks:
       - red-entorno
 

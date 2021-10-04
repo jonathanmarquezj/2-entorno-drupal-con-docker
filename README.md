@@ -113,3 +113,10 @@ Para realizar la importacion de la DB:
 <pre>
 dev-2-entorno-drupal-con-docker.test-mysql-import-db < fichero_de_la_copia >
 </pre>
+
+## Monitorización
+Podemos ver la monitorizacion desde el Grafana, dando en la pestaña de Dashboard y seleccionando la plantilla de <b>"MySQL Exporter Quickstart and Dashboard"</b>, donde nos saldra unos esquemas para visualizar el estado de la base de datos.
+
+
+
+
