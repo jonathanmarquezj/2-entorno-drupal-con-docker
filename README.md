@@ -91,6 +91,8 @@ Y nos tendra que salir algo como esto.
 | haproxy | docker-entrypoint.sh hapro ... | Up | 9000/tcp |
 | loki | docker-php-entrypoint php- ... | Up | 0.0.0.0:80->80/tcp,:::80->80/tcp,0.0.0.0:8181->8181/tcp,:::8181->8181/tcp |
 | mysql | docker-entrypoint.sh mysqld | Up | 3306/tcp |
+| prom_mysql_exporter | /bin/mysqld_exporter | Up | 0.0.0.0:9104->9104/tcp,:::9104->9104/tcp |
+| prometheus | /bin/prometheus --config.f ... | Up | 0.0.0.0:9090->9090/tcp,:::9090->9090/tcp |
 
 Y si nos dirigimos al "localhost" nos aparecera la web de drupal para comenzar la instalación.
 
