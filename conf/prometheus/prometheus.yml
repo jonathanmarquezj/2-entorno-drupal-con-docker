@@ -14,3 +14,10 @@ scrape_configs:
       - targets: ['prom_mysql_exporter:9104']
         labels:
           alias: mysql
+
+# PARA MONITORIZAR LOKI
+  - job_name: loki
+    static_configs:
+      - targets: ['loki:3100']
+        labels:
+          alias: loki
