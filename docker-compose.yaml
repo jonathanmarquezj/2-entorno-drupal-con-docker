@@ -14,17 +14,18 @@ services:
       - ./conf/fluent/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf
     restart: always
 #    hostname: fluent
-    networks:
-      - red-entorno
     ports:
       - 24224:24224
       - 24224:24224/udp
     networks:
       - red-entorno
 
+
+
+
 # GRAFANA
   grafana:
-    image: grafana/grafana:7.2.2
+    image: grafana/grafana:7.4.2
     container_name: grafana
     volumes:
       - ./conf/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
@@ -42,11 +43,14 @@ services:
 # LOKI
   loki:
     container_name: loki
-    image: grafana/loki:latest
+    image: grafana/loki:2.1.0
     ports:
       - "3100:3100"
+    command: -config.file=/etc/loki/local-config.yaml
     networks:
       - red-entorno
+    volumes:
+      - ./conf/loki/local-config.yaml:/etc/loki/local-config.yaml
 
 # MYSQL EXPORTER
   prom_mysql_exporter:
