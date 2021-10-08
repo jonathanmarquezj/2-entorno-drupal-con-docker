@@ -13,7 +13,7 @@ services:
     volumes:
       - ./conf/fluent/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf
     restart: always
-#    hostname: fluent
+    hostname: fluent
     ports:
       - 24224:24224
       - 24224:24224/udp
